@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+ 
+{% block title %}
+Face detection Results
+{% endblock %
+ 
+
+
+
+{% block content %}
+<h1>Results</h1>
+<br>
+<img src="{{ url_for('static', filename="results/detected_image.jpg") }}" />
+{% endblock %}

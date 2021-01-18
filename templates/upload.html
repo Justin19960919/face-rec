@@ -1,0 +1,35 @@
+<!-- <html>
+   <body>
+      <form action = "http://localhost:5000/" method = "POST" 
+         enctype = "multipart/form-data">
+         
+         <h1>Kpop face recognition</h1>
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      
+      
+      </form>
+   </body>
+</html> -->
+
+
+{% extends 'base.html' %}
+
+
+{% block title %}
+Upload
+{% endblock %}
+
+
+{% block content %}
+
+<div class="mb-3">
+   <form action = "/upload" method="POST">
+      <label for="formFile" class="form-label">Upload KPOP photo for face recognition</label>
+      <input class="form-control" type="file" id="formFile" name = uploadFile>
+      <button type="submit" class="btn btn-light">Submit</button>
+
+   </form>
+</div>
+
+{% endblock %}

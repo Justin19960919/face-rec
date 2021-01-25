@@ -1,29 +1,68 @@
-from flask import Flask, render_template, url_for, request, redirect, flash
+# Flask
+from flask import Flask, render_template, url_for, request, redirect, flash, send_from_directory, abort
 from werkzeug.utils import secure_filename
-import os
 
-# import face_recognition function
+# support
+import os
+import json
+import requests
+
+# face_recognition 
 from detect import label_image
+# fetch news
+from newsAPI import readNews
+
+
+#pip3 install flask-sqlalchemy
+# import db (SQLALchemy)
+from flask_sqlalchemy import SQLAlchemy
+
+
+
+# google sheet api and google drive api
+
+# dependencies
+# pip3 install gspread
+# pip3 install --upgrade google-api-python-client oauth2client
+# import gspread
+# from oauth2client.service_account import ServiceAccountCredentials
+from saveToSheets import saveToGoogleSheets
+
+
+
+
 
 
 app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return render_template("home.html")
+app.secret_key = "some secret key you made up"
 
 
-# passing paramters
-# @app.route("/<name>")
-# def home(name):
-#     return render_template("home.html",name = name)
+# upload configurations
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg',"gif"}
+app.config['UPLOAD_FOLDER'] = "upload/"
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # This sets the max upload to 16 mb (1024*1024)
 
 
-UPLOAD_FOLDER = "./upload/"
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-#This sets the max upload to 16 mb
-#app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+# sqlite:////tmp/test.db
+# db configurations
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///users.sqlite3'
+app.config["SQLALCHEMY_TRACK_NOTIFICATIONS"] = False
+
+
+# configure db
+db = SQLAlchemy(app)
+
+# Represent user object
+class users(db.Model):
+    _id = db.Column("id",db.Integer,primary_key=True) # store an integer id as PK
+    email = db.Column(db.String(100))
+    feedback = db.Column(db.String(200))
+
+
+    def __init__(self,email,feedback):
+        self.email = email
+        self.feedback = feedback
+
 
 
 ####### self defined functions ####### 
@@ -31,57 +70,68 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def remove_detected_image():
-    target_dir = "./static/results/"
-    dir_files = os.listdir(target_dir)
+def remove_images(route):
+    # target_dir = "./static/results/"
+    dir_files = os.listdir(route)
     for p_file in dir_files:
-        if p_file == "detected_image.jpg":
-            os.remove(os.path.join(target_dir,p_file))
-
-###################################
+        os.remove(os.path.join(route,p_file))
 
 
+
+
+
+
+
+# Home
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+
+
+# Uploads / Outputs
+
+# https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask
 @app.route("/upload",methods = ["GET","POST"])
-def upload():
-
-    # delete all files in upload and results
-    remove_detected_image()
-
-    if request.method == "GET":
+def upload_file():
+   if request.method == "GET":
         return render_template("upload.html")
-    
-    elif request.method == "POST":
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
+    # curently not very secure
+    # add progress bar and wait icon
+   elif request.method == 'POST':
+        print("we got the post request")
         
-        file = request.files['uploadFile']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
+        remove_images("./upload")
+        remove_images("./static/results")
         
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            upload_route = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(upload_route)
-            #return redirect(url_for('uploaded_file',filename=filename))
-            # return "Uploaded file.."
-            
-            label_image(upload_route)
-            return render_template("output.html")
+        f = request.files['uploadFile']
+        saved_filename = secure_filename(f.filename)
+        saved_route =  os.path.join(app.config['UPLOAD_FOLDER'],saved_filename)
+        f.save(
+            saved_route
+           )
+        label_image(saved_route)
+        return redirect(url_for("output"))
+
+@app.route("/output")
+def output():
+    return render_template("output.html")
 
 
+
+
+
+
+# News
 @app.route("/news")
 def news():
-    return render_template("news.html")
+    display_news = readNews()
+    return render_template("news.html",news_data = display_news)
 
-@app.route("/concerts")
-def concert():
-    return render_template("concerts.html")
 
+
+
+# Newsletters (not yet implemented)
 @app.route("/newsletter",methods = ["POST","GET"])
 def signup():
     # return "we are at the newsletter signup page"
@@ -89,9 +139,20 @@ def signup():
         # ok , I got the form data
         email = request.form['emailInput']
         feedback = request.form['feedBack']
-        return f"<p>{email}</p>\
-                 <p>{feedback}</p>"
-        # save to db , implement later
+        print(email,feedback)
+
+        # check if user already exists
+        found_user = users.query.filter_by(email=email).first()
+        if found_user:
+            flash("You already signed up for the Newsletter! ","error")
+        # add one
+        else:
+            usr = users(email,feedback)
+            db.session.add(usr)         # add usr to db
+            db.session.commit()                 # commit to db
+            flash("Congratulations! Your email was saved..","info")
+
+        return redirect(url_for("signup"))
 
     else:
         return render_template("newsletter.html")
@@ -99,11 +160,37 @@ def signup():
 
 
 
+# https://www.tutorialspoint.com/flask/flask_sqlalchemy.htm
+# route to view all users
+@app.route("/viewUsers")
+def view():
+    allUsers = users.query.all()
+    
+    userData = list(map(lambda x:[x.email,x.feedback],allUsers))
+    # save to the google sheets
+    saveToGoogleSheets(userData)
+    # success
+    return render_template("view.html",values = users.query.all())
 
 
 
 
-# updates changes in the server automatically
+
+
+
+
+# Companies
+# introduce users to the 7 companies
+@app.route("/companies")
+def getCompanies():
+    return render_template("companies.html")
+
+
+
+
+
+# updates changes in the server automatically and shows debug
 if __name__ == "__main__":
+    db.create_all() # create db if it doesn't already exist
     app.run(debug=True)
 

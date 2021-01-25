@@ -1,77 +1,85 @@
+<!-- How to custom navbar -->
+<!-- https://medium.com/wdstack/bootstrap-4-custom-navbar-1f6a2da5ed3c -->
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% block title %} {% endblock %}</title>        
+        <title>{% block title %} {% endblock %}</title>
+        <!-- jquery cdn -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- boostrap 4.5.2 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
         
-        <!-- Import bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-        <!-- import my css stylesheets -->
+        <!-- link my style sheet -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css')}}">
+        
+        <!-- google font cdn -->
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sofia&family=Permanent+Marker&family=Sacramento&family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
+
+
+          <!-- Font Awesome CDN -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
 
     </head>
     <body>
-         <!-- use a nav bar -->
-         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <div class="container-fluid">
-              <a class="navbar-brand" href="/">Kpop face detection</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="/">KPOP101</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/upload">Upload</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/news">News</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/concerts">Concerts</a>
-                  </li>
-                
-                  <li class="nav-item">
-                    <a class="nav-link" href="/newsletter">Newsletter</a>
-                  </li>
-                </ul>
-                
-              </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <!-- uploads -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/upload">FaceRec</a>
+                        </li>
+                        <!-- news -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/news">News</a>
+                        </li>
+                        <!-- companies -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/companies">Companies</a>
+                        </li>
+                        <!-- newsletter -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/newsletter">Newsletter</a>
+                            
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
-        {% block content %}
-        {% endblock %}
+
+        {% block content %} {% endblock %}
+
+
+        <!-- still need to adjust for sticky footer to stay at the bottom -->
+        <!-- Footer -->
+        <footer class="white-section" id="footer">
+            <div class="container-fluid">
+                <i class="social-icon fab fa-facebook-f"></i>
+                <i class="social-icon fab fa-twitter"></i>
+                <i class="social-icon fab fa-instagram"></i>
+                <i class="social-icon fas fa-envelope"></i>
+                <p>© Copyright 2021 Chieh Lin Lee</p>
+            </div>
+        </footer>
         
 
-
-        <!-- <div class="footer-padding"></div>
-        <div class="footer">
-            <p>Website made by Justin Lee</p>
-            <p>
-            <a href="mailto:chiehlinleee@gmail.com">
-                Email to Me          
-            </a>
-            </p> 
-        </div> -->
-
-
-
-
+        <!-- import my js files -->
+        <script src="{{url_for('static',filename='js/spinner.js')}}"></script>
         <!-- import boostrap js files -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-
     </body>
 </html>
-
-
-
-
-
-
-
-

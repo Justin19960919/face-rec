@@ -1,18 +1,3 @@
-<!-- <html>
-   <body>
-      <form action = "http://localhost:5000/" method = "POST" 
-         enctype = "multipart/form-data">
-         
-         <h1>Kpop face recognition</h1>
-         <input type = "file" name = "file" />
-         <input type = "submit"/>
-      
-      
-      </form>
-   </body>
-</html> -->
-
-
 {% extends 'base.html' %}
 
 
@@ -23,13 +8,47 @@ Upload
 
 {% block content %}
 
-<div class="mb-3">
-   <form action = "/upload" method="POST">
-      <label for="formFile" class="form-label">Upload KPOP photo for face recognition</label>
-      <input class="form-control" type="file" id="formFile" name = uploadFile>
-      <button type="submit" class="btn btn-light">Submit</button>
 
-   </form>
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+   
+   <h2 class="upload-intro">
+   Want to figure out which Kpop idols are in the picture?
+   No problem. Upload a photo below!
+   </h2>
+
+   <div class="outputPhoto">
+      <img src="{{ url_for('static', filename="example.jpg") }}" width="785" height="500"/>
+   </div>
+   
+
+   <form action = "/upload" method = "POST" enctype = "multipart/form-data">
+      <label>Upload a photo</label>
+      <br>
+      <input type = "file" name = "uploadFile" />
+      <input type = "submit" id="submit"/>
+      
+      <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+      </div>
+       
+      </form>
 </div>
+
+
+
+
+
+<p>{{warning}}</p>
+
+
 
 {% endblock %}

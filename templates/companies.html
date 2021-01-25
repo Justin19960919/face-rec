@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Entertainment Companies
+{% endblock %}
+
+
+<!-- style css later -->
+{% block content %}
+
+
+
+
+
+<p class="companies-intro">There are a number of Korean entertainment companies that produce idols, singers, actors, and even models. Amongst them, the three biggest are: SM, YG, JYP. The following introduces the 7 leading companies in korea. </p>
+
+
+
+
+<!-- cards -->
+<div class="row row-cols-1 row-cols-md-3 g-4" id="cardShow">
+    
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{url_for('static',filename = "card_photos/yg.png")}}" class="card-img-top" alt="yg" width="500" height="300">
+        <div class="card-body">
+          <h5 class="card-title">YG Enterntainment</h5>
+          <p class="card-text">One of the largest South Korean entertainment companies, which was established in 1996 by Yang Hyun-Suk. The company operates as a record label, talent agency, music production company, event management and concert production company, and music publishing house. Besides, the company operates a number of subsidiary ventures under a separate publicly traded company, YG PLUS, which includes a clothing line, a golf management agency, and a cosmetics brand.YG Entertainment has been the birthplace of some of Korea's most famous and well-respected artists. Currently, the company includes Big Bang, Dara, Akdong Musician, Winner, Ikon, Blackpink, Sechs Kies, Jinusean, and Treasure as well as actors and actresses.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{url_for('static',filename = "card_photos/jyp.jpg")}}" class="card-img-top" alt="jyp" width="500" height="300">
+        <div class="card-body">
+          <h5 class="card-title">JYP Entertainment</h5>
+          <p class="card-text">South Korean multinational entertainment and record label conglomerate founded in 1997 by Park Jin-Young. It is one of the largest entertainment companies in South Korea and operates as a record label, talent agency, music production company, event management, concert production company, and music publishing house. Also, the company operates various subsidiary ventures and divisions worldwide.Notable artists of the company include 2PM, JJ Project, GOT7, Day6, Twice, Stray Kids, and Itzy.</p>
+        </div>
+      </div>
+    </div>
+        
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{url_for('static',filename = "card_photos/sm.png")}}" class="card-img-top" alt="sm" width="500" height="300">
+        <div class="card-body">
+          <h5 class="card-title">SM Entertainment</h5>
+          <p class="card-text">South Korea’s largest entertainment company along with YG and JYP. It was founded in 1995 by Lee Soo-Man. SM is known for having led the global K-pop phenomenon with early overseas successes such as BoA and TVXQ. The label currently represents K-pop artists such as EXO, Red Velvet, NCT, Super Junior, TVXQ, Taeyeon, and others.</p>
+        </div>
+      </div>
+    </div>
+   
+    <div class="col">
+        <div class="card h-100">
+          <img src="{{url_for('static',filename = "card_photos/bighit.jpg")}}" class="card-img-top" alt="bighit" width="500" height="300">
+          <div class="card-body">
+            <h5 class="card-title">Big Hit Entertainment</h5>
+            <p class="card-text">
+                South Korean entertainment company established in 2005 by Bang Si-Hyuk. It currently manages soloist Lee Hyun and world-famous boy bands BTS and TXT and has several subsidiaries. Big Hit's success has been attributed to its innovative management style. It includes a wide usage of social media to capture people's interest and transform it into sales, the creation of artist-related multimedia contents, and the full use of fandoms energy.</p>
+          </div>
+        </div>
+      </div>    
+
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{url_for('static',filename = "card_photos/cube.png")}}" class="card-img-top" alt="cube" width="500" height="300">
+        <div class="card-body">
+          <h5 class="card-title">Cube Entertainment</h5>
+          <p class="card-text">South Korean entertainment company. The company operates as a record label, talent agency, music production company, event management and concert production company, and music publishing house. It is known for having "self-composing and self-producing" idols. Cube Entertainment was founded in 2006 by Hong Seung-Sung and Shin Jung-Hwa. The label currently manages several artists, namely Jo Kwon, Jang Hyun-Seung, BtoB, CLC, Pentagon, Lai Kuan-lin, Yoo Seon-ho, (G)I-dle and A Train To Autumn. It was formerly home to K-pop artists such as 4Minute, Beast, G.NA, Roh Ji-hoon, and Hyuna.</p>
+        </div>
+      </div>
+    </div>  
+
+
+    <div class="col">
+        <div class="card h-100">
+          <img src="{{url_for('static',filename = "card_photos/fnc.jpg")}}" class="card-img-top" alt="fnc" width="500" height="300">
+          <div class="card-body">
+            <h5 class="card-title">FNC Entertainment</h5>
+            <p class="card-text">South Korean entertainment company established in 2006 by South Korean singer and record producer Han Seong-Ho. The label operates as a record label, talent agency, music production company, event management and concert production company, and music publishing house. The label is home to famous K-pop artists such as F.T. Island, CNBLUE, AOA, N.Flying, SF9, and Cherry Bullet. It also manages a number of entertainers and several actors.</p>
+          </div>
+        </div>
+    </div>
+
+  </div>
+{% endblock %}

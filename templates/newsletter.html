@@ -9,24 +9,40 @@ Newsletter signup
 <!-- style css later -->
 {% block content %}
 
+<div class="container-fluid newsletter-form">	
 
- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	<!-- newsletter text -->
+
+	<p class="newsletter-text">If you are interested in Kpop, and want to learn more, I am personally organizing a KPOP newsletter, and will be sent to your email every month, hand-written by me.</p>
+
+	<!-- flash message -->
+	{% with messages = get_flashed_messages() %}
+	   {% if messages %}
+	      {% for message in messages %}
+	         <p>{{ message }}</p>
+	      {% endfor %}
+	   {% endif %}
+	{% endwith %}
 
 
- <form action = "/newsletter" method = "POST">
-   <div class="mb-3">
-      <label class="form-label">Email address</label>
-      <input type="email" class="form-control" id="emailInput" name = "emailInput" placeholder="email@example.com">
-   </div>
+	<form action = "/newsletter" method = "POST">
+	   <div class="mb-3">
+	      <label class="form-label">Email address</label>
+	      <input type="email" class="form-control" id="emailInput" name = "emailInput" placeholder="email@example.com">
+	   </div>
 
 
-   <div class="mb-3">
-      <label class="form-label">Feedback or Suggestions</label>
-      <textarea class="form-control" id="feedback" name= "feedBack"rows="5"></textarea>
-   </div>
-   
-   <button type="submit" class="btn btn-light">Submit</button>
-</form>
+	   <div class="mb-3">
+	      <label class="form-label">Feedback or Suggestions</label>
+	      <textarea class="form-control" id="feedback" name= "feedBack"rows="5"></textarea>
+	   </div>
+	   
+	   <button type="submit" class="btn btn-dark">Submit</button>
+	</form>
+</div>
+
+
+
+
 {% endblock %}
-
 

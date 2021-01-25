@@ -5,153 +5,101 @@
 {% block title %}
 Home page
 {% endblock %}
-
-
-
 {% block content %}
 
-<!-- idea of website -->
 
-<div class = "container-fluid center">
-    <h2>Has KPOP become too overwhelming?</h2>
-    <p>
-        As globalization began in the 20th century, accessing different
-        genres of music has never been easier. Over the years, Korea has
-        produced a lot of famous artists, whether it be kpop groups,
-        singers or actor/actresses. The speed of music production and industry evolvement can be sometimes hard to catch up. This website
-        is dedicated to giving you basic knowledge of the group you desire,
-        and can even help you "face recognize" through photo upload! 
-        Take your shot.
-    </p>
-</div>
-<!-- ----------- -->
 
 <!-- carousel template -->
-<div id="carouselExampleIndicators" class="carousel slide slideshow" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-      <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-      <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-    </ol>
-    
-    <div class="carousel-inner">
-    
-      <div class="carousel-item active" data-bs-interval="4000">
-        <img src="{{url_for('static',filename = "home_photos/Twice.jpg")}}" class="d-block w-100" alt="Twice image"  width="1500" height="500">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Twice</h5>
-            <p>The nation's girl group</p>
-        </div>
-      </div>
-
-      <div class="carousel-item" data-bs-interval="4000">
-        <img src="{{url_for('static',filename = "home_photos/bp.jpg")}}" class="d-block w-100" alt="BP image" width="1500" height="500">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Black Pink in your area</h5>
-          <p>Blackpink photo</p>
-        </div>
-      </div>
-
-      <div class="carousel-item" data-bs-interval="4000">
-        <img src="{{url_for('static',filename = "home_photos/gfriend.jpeg")}}" class="d-block w-100" alt="Gfriend" width="1500" height="500">
-        <div class="carousel-caption d-naone d-md-block">
-          <h5>Gfriend</h5>
-          <p>Gfriend photo</p>
-        </div>
-      </div>
-
-      <div class="carousel-item" data-bs-interval="4000">
-        <img src="{{url_for('static',filename = "home_photos/rv.jpg")}}" class="d-block w-100" alt="Red velvet" width="1500" height="500">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Red Velvet</h5>
-          <p>Psycho..</p>
-        </div>
-      </div>
-
-    </div>
-
-
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </a>
-  </div>
-
-<!-- ----------- -->
-
-
-<!-- cards -->
-<div class="row row-cols-1 row-cols-md-3 g-4" id="cardShow">
-    
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{url_for('static',filename = "card_photos/yg.png")}}" class="card-img-top" alt="yg" width="500" height="300">
-        <div class="card-body">
-          <h5 class="card-title">YG Enterntainment</h5>
-          <p class="card-text">One of the largest South Korean entertainment companies, which was established in 1996 by Yang Hyun-Suk. The company operates as a record label, talent agency, music production company, event management and concert production company, and music publishing house. Besides, the company operates a number of subsidiary ventures under a separate publicly traded company, YG PLUS, which includes a clothing line, a golf management agency, and a cosmetics brand.YG Entertainment has been the birthplace of some of Korea's most famous and well-respected artists. Currently, the company includes Big Bang, Dara, Akdong Musician, Winner, Ikon, Blackpink, Sechs Kies, Jinusean, and Treasure as well as actors and actresses.</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{url_for('static',filename = "card_photos/jyp.jpg")}}" class="card-img-top" alt="jyp" width="500" height="300">
-        <div class="card-body">
-          <h5 class="card-title">JYP Entertainment</h5>
-          <p class="card-text">South Korean multinational entertainment and record label conglomerate founded in 1997 by Park Jin-Young. It is one of the largest entertainment companies in South Korea and operates as a record label, talent agency, music production company, event management, concert production company, and music publishing house. Also, the company operates various subsidiary ventures and divisions worldwide.Notable artists of the company include 2PM, JJ Project, GOT7, Day6, Twice, Stray Kids, and Itzy.</p>
-        </div>
-      </div>
-    </div>
+<section class="carousel-background">
+    <div id="carouselExampleControls" class="carousel slide slideshow" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+        </ol>
         
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{url_for('static',filename = "card_photos/sm.png")}}" class="card-img-top" alt="sm" width="500" height="300">
-        <div class="card-body">
-          <h5 class="card-title">SM Entertainment</h5>
-          <p class="card-text">South Korea’s largest entertainment company along with YG and JYP. It was founded in 1995 by Lee Soo-Man. SM is known for having led the global K-pop phenomenon with early overseas successes such as BoA and TVXQ. The label currently represents K-pop artists such as EXO, Red Velvet, NCT, Super Junior, TVXQ, Taeyeon, and others.</p>
+        <div class="carousel-inner">
+            
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img src="{{ url_for('static', filename="home_photos/twice.jpg")}}" class="d-block w-100 img-fluid" alt="Twice image">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ url_for('static', filename="home_photos/itzy.jpg")}}" class="d-block w-100 img-fluid" alt="Itzy">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ url_for('static', filename="home_photos/gfriend.jpeg")}}" class="d-block w-100 img-fluid" alt="Gfriend">
+                <div class="carousel-caption d-naone d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ url_for('static', filename="home_photos/rv.jpg")}}" class="d-block w-100 img-fluid" alt="Red velvet">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
         </div>
-      </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+        
     </div>
-   
-    <div class="col">
-        <div class="card h-100">
-          <img src="{{url_for('static',filename = "card_photos/bighit.jpg")}}" class="card-img-top" alt="bighit" width="500" height="300">
-          <div class="card-body">
-            <h5 class="card-title">Big Hit Entertainment</h5>
-            <p class="card-text">
-                South Korean entertainment company established in 2005 by Bang Si-Hyuk. It currently manages soloist Lee Hyun and world-famous boy bands BTS and TXT and has several subsidiaries. Big Hit's success has been attributed to its innovative management style. It includes a wide usage of social media to capture people's interest and transform it into sales, the creation of artist-related multimedia contents, and the full use of fandoms energy.</p>
-          </div>
-        </div>
-      </div>    
+</section>
+<!-- ----------------- -->
+<!-- ---- Idea ------- -->
 
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{url_for('static',filename = "card_photos/cube.png")}}" class="card-img-top" alt="cube" width="500" height="300">
-        <div class="card-body">
-          <h5 class="card-title">Cube Entertainment</h5>
-          <p class="card-text">South Korean entertainment company. The company operates as a record label, talent agency, music production company, event management and concert production company, and music publishing house. It is known for having "self-composing and self-producing" idols. Cube Entertainment was founded in 2006 by Hong Seung-Sung and Shin Jung-Hwa. The label currently manages several artists, namely Jo Kwon, Jang Hyun-Seung, BtoB, CLC, Pentagon, Lai Kuan-lin, Yoo Seon-ho, (G)I-dle and A Train To Autumn. It was formerly home to K-pop artists such as 4Minute, Beast, G.NA, Roh Ji-hoon, and Hyuna.</p>
-        </div>
-      </div>
-    </div>  
-
-
-    <div class="col">
-        <div class="card h-100">
-          <img src="{{url_for('static',filename = "card_photos/fnc.jpg")}}" class="card-img-top" alt="fnc" width="500" height="300">
-          <div class="card-body">
-            <h5 class="card-title">FNC Entertainment</h5>
-            <p class="card-text">South Korean entertainment company established in 2006 by South Korean singer and record producer Han Seong-Ho. The label operates as a record label, talent agency, music production company, event management and concert production company, and music publishing house. The label is home to famous K-pop artists such as F.T. Island, CNBLUE, AOA, N.Flying, SF9, and Cherry Bullet. It also manages a number of entertainers and several actors.</p>
-          </div>
+<section class="idea">
+    <div>
+        <h3 class="idea-title"> Is KPOP too overwhelming?</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+</section>
+<!-- ----------------- -->
+<!-- ---- Website information ------- -->
+<section class="kpop-info">
+    <h3>Kpop Information</h3>
+    <div class="container-fluid kpop-text">
+        <div class="row">
+            <div class="col">
+                <h4 class="information-title">News</h4>
+                <p class="information-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            </div>
+            <div class="col">
+                <h4 class="information-title">Concert</h4>
+                <p class="information-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            </div>
+            <div class="col">
+                <h4 class="information-title">Companies</h4>
+                <p class="information-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            </div>
         </div>
     </div>
-
-  </div>
-<!-- ----------- -->
+</section>
+<!-- ----------------- -->
+<!-- ---- Website Features ------- -->
+<section class="features">
+    <h3>Our Features</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h4 class="feature">Face Recognition</h4>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            </div>
+            <div class="col">
+                <h4 class="feature">Newsletter</h4>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ----------------- -->
 
 {% endblock %}
 

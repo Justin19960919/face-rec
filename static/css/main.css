@@ -1,22 +1,312 @@
-body{
-    font-family:sans-serif;
-}
+/*/*font-family: 'Merriweather', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Sacramento', cursive;
+font-family: 'Source Serif Pro', serif;
+*/
 
-.center{
-    margin: auto;
-    width: 50%;
-    padding: 50px 10px 50px;
+
+
+/*html tags*/
+body {
+    font-family: sans-serif;
     text-align:center;
-    font-family:Georgia;
 }
 
-.slideshow{
-    margin:auto;
+h1 {
+    font-family: "Montserrat";
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+}
+
+h2, h3{
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+h4{
+    font-family: "Sacramento",cursive;
+    text-align: center;
+}
+
+
+p{
+    font-family: "Source Serif Pro",serif;
+    line-height: 2;
+}
+
+
+/*navbar*/
+
+.navbar-custom{
+    background-color:#FF66B2;
+    padding: 1rem;
+}
+
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #FFFFFF;
+}
+
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #FFFFFF;
+}
+
+
+
+.navbar-brand{
+    color: #FFFFFF;
+    font-family: 'Sofia', cursive;
+    font-size: 3rem;
+}
+
+
+
+.nav-item{
+    margin:0px 5px;
+    font-family:'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+
+/* change the color of active or hovered links */
+/*.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}*/
+
+
+
+/*carousel*/
+.slideshow {
+    /*margin: auto;*/
+    /*width: 60%;*/
+}
+
+
+.carousel-background{
+    /*background-color:#FFCCE5;*/
+}
+
+
+
+/*idea*/
+
+
+.idea-title{
+    margin-bottom:30px;
+}
+
+.idea{
+    width: 60%;
+    margin: 60px auto 10px auto;
+    line-height: 1.5;
+}
+
+
+/*kpop information*/
+
+.kpop-info{
+    width:85%;
+    margin:60px auto 10px auto;
+}
+
+
+.kpop-text{
+    margin-top:60px;
+}
+
+
+.information-title{
+    
+    background-color:white;
+    width:40%;
+    
+    margin:0px auto 5px auto;
+    /*add borders?   */
+    /*border:solid 1px;*/
+    /*border-color:#FF66B2;*/
+    
+    padding: 2px;
+    /*text-decoration: underline;*/
+
+    font-size:2.5rem;
+
+}
+
+
+
+
+
+
+.information-text{
+    background-color: #FFB6C1;
+    margin-right: 20px;
+}
+
+
+
+/*website features*/
+.features{
+    width:70%;
+    margin:60px auto 10px auto;
+}
+
+
+.feature{
+    margin:30px 20px;
+    font-size:3rem;
+    padding:10px;
+}
+
+
+.features > .container-fluid > .row >.col{
+    margin-right: 45px;
+    margin-left:45px;
+}
+
+
+
+/*footer*/
+.white-section {
+    background-color: #fff;
+    margin:100px auto 100px auto;
+}
+
+.social-icon {
+    margin: 20px 20px;
+}
+
+/****************************/
+
+
+
+/*cardshow*/
+#cardShow {
+    margin: auto;
+    width: 80%;
+    padding: 0px 0px 100px 0px;
+}
+
+
+/*upload*/
+.upload-intro{
+    width:60%;
+    margin:30px auto 30px auto;
+}
+
+
+.outputPhoto{
+    margin-bottom:50px;
+}
+
+
+
+
+/*this has problems*/
+.spinner-border {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/** News css */
+
+.news-article{ 
+    margin: 10px 0px 10px 10px;
+    width: 50%;
+    padding: 30px;
+}
+
+
+
+.news-img{
+    float:right;
+    margin: 100px 120px 40px 100px;
+
+}
+
+
+.article-title{
+    font-family:'Source Serif Pro', serif;
+}
+
+
+
+.article-text{
+    text-align: left;
+}
+
+
+
+/*newsletter*/
+
+.newsletter-text{
+    font-weight: bold;
+    font-size:2rem;
+    margin-bottom:40px;
+
+}
+
+
+.newsletter-form{
+    margin:70px auto 10px auto;
     width:50%;
-    padding: 0px 10px 50px;
+    text-align: left;
 }
 
-#cardShow{
-    margin:auto;
+
+/*companies*/
+
+
+.companies-intro{
+    margin:2.5% auto;
+    font-size:1.5rem;
+    font-weight: bold;
     width:80%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+View all users
+{% endblock %}
+
+
+
+{% block content %}
+{% for user in values %}
+
+	<p>Email: {{user.email}} Feedback:{{user.feedback}}</p>
+
+{% endfor %}
+
+
+{% endblock %}

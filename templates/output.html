@@ -2,13 +2,14 @@
  
 {% block title %}
 Face detection Results
-{% endblock %
+{% endblock %}
  
 
-
+<!-- output has bug -->
 
 {% block content %}
-<h1>Results</h1>
-<br>
-<img src="{{ url_for('static', filename="results/detected_image.jpg") }}" />
+
+<div>
+    <img src="{{ url_for('static', filename="results/results.jpg") }}"/>
+</div>
 {% endblock %}

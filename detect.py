@@ -95,4 +95,4 @@ def label_image(unknown_image_path):
     # pil_image.show()
 
     # You can also save a copy of the new image to disk if you want by uncommenting this line
-    pil_image.save("./static/results/detected_image.jpg")
+    pil_image.save(f"./static/results/results.jpg")

@@ -71,11 +71,13 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def remove_images(route):
-    # target_dir = "./static/results/"
     dir_files = os.listdir(route)
+    if len(dir_files) == 0:
+        return
+    # else remove all
     for p_file in dir_files:
         os.remove(os.path.join(route,p_file))
-
+    print(f"Removed all files in {route}")
 
 
 
@@ -93,25 +95,32 @@ def home():
 
 # https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask
 @app.route("/upload",methods = ["GET","POST"])
-def upload_file():
+def upload():
    if request.method == "GET":
         return render_template("upload.html")
     # curently not very secure
     # add progress bar and wait icon
    elif request.method == 'POST':
         print("we got the post request")
-        
-        remove_images("./upload")
-        remove_images("./static/results")
+
+        # # remove all images from the specified directory
+        # remove_images("./upload")
+        # remove_images("./static/results")
         
         f = request.files['uploadFile']
-        saved_filename = secure_filename(f.filename)
-        saved_route =  os.path.join(app.config['UPLOAD_FOLDER'],saved_filename)
-        f.save(
-            saved_route
-           )
-        label_image(saved_route)
-        return redirect(url_for("output"))
+        if f.filename != '':
+            flash("Loading and matching..","info")
+            saved_filename = secure_filename(f.filename)
+            saved_route =  os.path.join(app.config['UPLOAD_FOLDER'],saved_filename)
+            f.save(
+                saved_route
+               )
+            label_image(saved_route)
+            return redirect(url_for("output"))
+        else:
+            flash("User didn't select a photo ","error")
+            return render_template("upload.html")
+
 
 @app.route("/output")
 def output():
@@ -160,7 +169,6 @@ def signup():
 
 
 
-# https://www.tutorialspoint.com/flask/flask_sqlalchemy.htm
 # route to view all users
 @app.route("/viewUsers")
 def view():
@@ -171,9 +179,6 @@ def view():
     saveToGoogleSheets(userData)
     # success
     return render_template("view.html",values = users.query.all())
-
-
-
 
 
 

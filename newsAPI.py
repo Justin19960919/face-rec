@@ -42,6 +42,7 @@ def readNews():
 	return articles
 
 
+
 def main():
 	getNews()
 

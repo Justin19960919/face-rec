@@ -28,19 +28,23 @@ Upload
    <div class="outputPhoto">
       <img src="{{ url_for('static', filename="example.jpg") }}" width="785" height="500"/>
    </div>
-   
+   <!-- flash message -->
+   {% with messages = get_flashed_messages() %}
+      {% if messages %}
+         {% for message in messages %}
+            <p>{{ message }}</p>
+         {% endfor %}
+      {% endif %}
+   {% endwith %}
+
 
    <form action = "/upload" method = "POST" enctype = "multipart/form-data">
       <label>Upload a photo</label>
       <br>
-      <input type = "file" name = "uploadFile" />
-      <input type = "submit" id="submit"/>
-      
-      <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
-      </div>
-       
-      </form>
+      <input type = "file" name = "uploadFile" id="uploadFile"/>
+      <input type = "submit" id="submit"/>  
+   </form>
+
 </div>
 
 

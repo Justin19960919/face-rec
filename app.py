@@ -195,7 +195,7 @@ def getCompanies():
 
 
 # updates changes in the server automatically and shows debug
-if __name__ == "__main__":
-    db.create_all() # create db if it doesn't already exist
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     db.create_all() # create db if it doesn't already exist
+#     app.run(debug=True)
 

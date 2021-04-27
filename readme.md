@@ -17,17 +17,17 @@ google drive api to update.
 As specified in the requirements.txt file, this project uses several packages, including:
 
 * flask==1.1.2
-requests==2.24.0
-gspread==3.6.0
-oauth2client==4.1.3
-Flask-SQLAlchemy==2.4.4
-Werkzeug==1.0.1
-python-dotenv==0.15.0
-boost
-cmake
-dlib
-face-recognition==1.3.0
-face-recognition-models==0.3.0
+* requests==2.24.0
+* gspread==3.6.0
+* oauth2client==4.1.3
+* Flask-SQLAlchemy==2.4.4
+* Werkzeug==1.0.1
+* python-dotenv==0.15.0
+* boost
+* cmake
+* dlib
+* face-recognition==1.3.0
+* face-recognition-models==0.3.0
 
 
 ### Build

@@ -60,7 +60,7 @@ The run on localhost:5000/
 ### Website 
 
 *Landing Page*
-
+<img src="/demo/home.png" alt="Home page"/>
 *Face recognition*
 
 *Face recognition Results*

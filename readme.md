@@ -66,7 +66,7 @@ The run on localhost:5000/
 <img src="/demo/upload.png" alt="face-rec"/>
 
 *Face recognition Results*
-<img src="/demo/detection-results.png" alt="face-results"/>
+<img src="/demo/detection_results.png" alt="face-results"/>
 
 *Latest News*
 <img src="/demo/news.png" alt="News"/>

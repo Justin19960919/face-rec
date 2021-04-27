@@ -16,7 +16,7 @@ google drive api to update.
 ### Dependencies
 As specified in the requirements.txt file, this project uses several packages, including:
 
-*flask==1.1.2
+* flask==1.1.2
 requests==2.24.0
 gspread==3.6.0
 oauth2client==4.1.3

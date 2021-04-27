@@ -14,7 +14,6 @@ from newsAPI import readNews
 
 
 #pip3 install flask-sqlalchemy
-# import db (SQLALchemy)
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -22,10 +21,6 @@ from flask_sqlalchemy import SQLAlchemy
 # google sheet api and google drive api
 
 # dependencies
-# pip3 install gspread
-# pip3 install --upgrade google-api-python-client oauth2client
-# import gspread
-# from oauth2client.service_account import ServiceAccountCredentials
 from saveToSheets import saveToGoogleSheets
 
 
@@ -195,7 +190,8 @@ def getCompanies():
 
 
 # updates changes in the server automatically and shows debug
-# if __name__ == "__main__":
-#     db.create_all() # create db if it doesn't already exist
-#     app.run(debug=True)
+if __name__ == "__main__":
+    db.create_all() # create db if it doesn't already exist
+    # app.run(debug=True)
+    app.run()
 

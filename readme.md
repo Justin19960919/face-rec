@@ -1,19 +1,19 @@
 # Kpop101
 
-*Overview*
+### Overview
 This is a python Flask web app aimed to provide Users with the experience of getting into the
 KPOP world. People who want to get into kpop often suffer from not being able to discriminate KPOP
 stars and the overwhelming information beforehand. This app provides four features, mainly: facial
 recognition, latest news, a newsletter to subscribe,and a brief introduction of korean entertainment
 companies. 
 
-*Technologies*
+### Technologies
 The Flask app is incorporated with Bootstap4, making the website responsive. Facial recognition feature
 is built using the dllib library of python (face-rec). Latest News is built incorporating GNews api to 
 fetch latest kpop news. Users that subscibe to the newletter are feeded into the Google excel api and 
 google drive api to update. 
 
-#### Dependencies
+### Dependencies
 As specified in the requirements.txt file, this project uses several packages, including:
 
 flask==1.1.2
@@ -30,7 +30,7 @@ face-recognition==1.3.0
 face-recognition-models==0.3.0
 
 
-##### Build
+### Build
 To build the website, run:
 ```
 python app.py
@@ -39,7 +39,7 @@ to build the website.
 The run on localhost:5000/
 
 
-##### Features
+### Features
 - Facial Recognition
   - Use the Python library 'face-rec' which is built on cmake and dlib to do facial recognition
   - Compares user upload photos with photos in the known folder (containing known Kpop idol photos)

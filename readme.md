@@ -61,16 +61,21 @@ The run on localhost:5000/
 
 *Landing Page*
 <img src="/demo/home.png" alt="Home page"/>
+
 *Face recognition*
+<img src="/demo/upload.png" alt="face-rec"/>
 
 *Face recognition Results*
+<img src="/demo/detection-results.png" alt="face-results"/>
 
 *Latest News*
+<img src="/demo/news.png" alt="News"/>
 
 *NewsLetter*
+<img src="/demo/newsletter.png" alt="Newsletter"/>
 
 *Companies*
-
+<img src="/demo/companies.png" alt="companies"/>
 
 
 
